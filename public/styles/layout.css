@@ -6,8 +6,21 @@
 html {
   box-sizing: border-box;
 }
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 *, *:before, *:after {
   box-sizing: inherit;
+  
+}
+
+input:focus, textarea {
+  outline: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0px; /**removes scrollbar in text area**/
 }
 
 /*
@@ -16,10 +29,24 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #F4F1EC;
   font-size: 24px;
+  font-family: 'Source Sans 3', sans-serif;
 }
 
+main {
+  width: 90%;
+  margin: auto;
+  /* border: red 1px solid; */
+}
+
+
+/****
+Utility
+***/
+.bungee {
+  font-family: 'Bungee';
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

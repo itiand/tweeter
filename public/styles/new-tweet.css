@@ -1,0 +1,38 @@
+.btn-tweet {
+  color: #ffff;
+  background-color:#4056A1;
+  font-family: 'Bungee';
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}
+
+.new-tweets label,
+.counter {
+  color: #757165;
+}
+
+#tweet-text {
+  /* Add your desired styling here, for example: */
+  background-color: #f4f1ec;
+  color:#2e2e2e;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  resize: none;
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  line-height: 1.2rem;
+  height: auto;
+  overflow: hidden; /* Hide the scroll bar */
+
+  margin-bottom: 0.4rem;
+}
+
+
+.form-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
