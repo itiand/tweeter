@@ -1,11 +1,12 @@
 .tweet-container {
   border: #ddd 2px solid;
-
+  box-shadow: 5px 8px 0px 0px rgb(217, 218, 236, 0.7);
   padding: 1rem;
 }
 
 .tweet-container:hover {
-  box-shadow: 5px 8px 0px 0px rgba(240, 225, 126, 0.7)}
+  box-shadow: 5px 8px 0px 0px rgba(240, 225, 126, 0.7)
+}
 
 
 /**HEADER**/
@@ -38,9 +39,6 @@ div.icon {
   align-items: center;
 }
 
-.handle {
-  color: 
-}
 
 /**TWEET**/
 .tweet-container .tweet {
@@ -62,7 +60,7 @@ div.icon {
 }
 
 .tweet-footer .rtLike {
-  color:#585a95;
+  color:#494b7c;
   font-size: 0.8em;
   margin-right: 1.2rem;
   cursor: pointer;

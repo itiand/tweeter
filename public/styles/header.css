@@ -3,7 +3,8 @@
   padding-top: 120px;
   width: 100%;
   background-color: #efd83e;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");  display: flex;
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");  
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
