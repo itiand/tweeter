@@ -43,8 +43,10 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
+      
+      <!-- New Tweet -->
       <section class="new-tweets">
-        <form action="/tweets" method="POST">
+        <form id="post-tweet" action="/tweets" method="POST">
           <label for="tweet-text" id="tweet-text-label">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="form-bottom">
@@ -53,6 +55,8 @@
           </div>
         </form>
       </section>
+
+      <!-- Tweets -->
       <section id="tweetS-container">
         <article class="tweet-container">
           <header class="flex">
@@ -77,5 +81,6 @@
       </section>
     </main>
     <script src="./scripts/composer-char-counter.js"></script>
+    <script src="./scripts/tweet-submission.js"></script>
   </body>
 </html>

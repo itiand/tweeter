@@ -4,18 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-};
-
 const data = [
   {
     "user": {
@@ -38,7 +26,19 @@ const data = [
       "text": "Je pense , donc je suis"
     },
     "created_at": 1687268893484
-  }
+  },
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "./images/isaac-newton-kneller-painting.jpg",
+      "handle": "@realIsaacNewton"
+    },
+    "content": {
+      "text": "I am the real deal"
+    },
+    "created_at": 1687268897484
+  },
+
 ]
 
 const formatTimestamp = function(timestamp) {
@@ -81,7 +81,7 @@ const createTweetElement = function(tweetData) {
   });
 
   const $iconImg = $("<img>", {
-    class: "icon",
+    class: "icon-img",
     src: user.avatars
   });
 
@@ -142,7 +142,20 @@ const renderTweets = function(collectionTweet) {
   }
 }
 
+
+
 // Test / driver code (temporary)
 $(document).ready(() => {
   renderTweets(data); 
+
+  $('#post-tweet').on('submit', function(e) {
+    console.log('submitted, performing AJAX call');
+
+    const $serializedForm = $(this).serialize();
+    
+    console.log('SERIALIZE - ', $serializedForm);
+    e.preventDefault()
+  })
+
+
 })
