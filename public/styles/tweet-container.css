@@ -2,6 +2,7 @@
   border: #ddd 2px solid;
   box-shadow: 5px 8px 0px 0px rgb(217, 218, 236, 0.7);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .tweet-container:hover {
