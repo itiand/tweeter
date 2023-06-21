@@ -30,9 +30,12 @@
   margin-bottom: 0.4rem;
 }
 
-
 .form-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+section.new-tweets{
+  margin-bottom: 1.5rem;
 }

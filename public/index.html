@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/nav.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/new-tweet.css">
+    <link rel="stylesheet" href="/styles/tweet-container.css">
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -31,8 +32,8 @@
         <p class="down-icon"><i class="fa-solid fa-angles-down"></i></p>    
       </div>
     </nav>
-    <header>
-      <div class="profile header">
+    <header id="nav-header">
+      <div class="header-pic">
           <img src="/images/Barack.jpg"> 
       </div>
       <br>
@@ -52,6 +53,30 @@
           </div>
         </form>
       </section>
+      <article class="tweet-container">
+        <header class="flex">
+          <div class="profile flex">
+            <div class="icon">
+              <img class="icon-img" src="./images/isaac-newton-kneller-painting.jpg" alt="">
+            </div>
+            <p>Newton</p>
+          </div>
+          <div class="handle">
+            <p>@iNewton</p>
+          </div>
+        </header>
+        <div class="tweet">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum, sit, repudiandae accusamus in fuga corrupti facilis.</p>
+        </div>
+        <footer class="tweet-footer flex">
+          <p>10 days ago</p>
+          <div class="rtLike">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
     </main>
     <script src="./scripts/composer-char-counter.js"></script>
   </body>

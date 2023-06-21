@@ -1,0 +1,72 @@
+.tweet-container {
+  border: #ddd 2px solid;
+
+  padding: 1rem;
+}
+
+.tweet-container:hover {
+  box-shadow: 5px 8px 0px 0px rgba(240, 225, 126, 0.7)}
+/**HEADER**/
+.tweet-container header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+div.icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 0.5rem;
+}
+
+.icon-img {
+  border-radius: 60%;
+  border: 2px #ffff solid;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.handle p {
+  font-weight: 600;
+}
+
+.tweet-container header .profile {
+  align-items: center;
+}
+
+/**TWEET**/
+.tweet-container .tweet {
+  padding-bottom: 1.2rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/**FOOTER**/
+.tweet-footer {
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.tweet-footer p {
+  font-size: 0.7em;
+  margin-left:1.2rem;
+}
+
+.tweet-footer .rtLike {
+  color:#404f85;
+  font-size: 0.8em;
+  margin-right: 1.2rem;
+  cursor: pointer;
+}
+
+.tweet-footer .rtLike i:hover {
+  color: #efd83e;
+}
+
+.rtLike :nth-child(1),
+.rtLike :nth-child(2) {
+  margin-right: 0.5rem;
+}
+
+

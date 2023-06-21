@@ -1,4 +1,4 @@
-header {
+#nav-header {
   height: 520px;
   padding-top: 120px;
   width: 100%;
@@ -12,12 +12,12 @@ header {
   margin-bottom: 1.5rem;
 }
 
-.profile {
+#nav-header .header-pic {
   width: 230px;
   height: 230px;
 }
 
-.profile img {
+.header-pic img {
   border-radius: 50%;
   border: 2px #ffff solid;
 
