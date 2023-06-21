@@ -6,6 +6,8 @@
 
 .tweet-container:hover {
   box-shadow: 5px 8px 0px 0px rgba(240, 225, 126, 0.7)}
+
+
 /**HEADER**/
 .tweet-container header {
   justify-content: space-between;
@@ -28,10 +30,16 @@ div.icon {
 
 .handle p {
   font-weight: 600;
+  color: #CACBDC;
+  margin-right: 1.2rem;
 }
 
 .tweet-container header .profile {
   align-items: center;
+}
+
+.handle {
+  color: 
 }
 
 /**TWEET**/
@@ -54,7 +62,7 @@ div.icon {
 }
 
 .tweet-footer .rtLike {
-  color:#404f85;
+  color:#585a95;
   font-size: 0.8em;
   margin-right: 1.2rem;
   cursor: pointer;

@@ -12,7 +12,10 @@
 .counter {
   color: #757165;
 }
-
+.new-tweets label {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
 #tweet-text {
   /* Add your desired styling here, for example: */
   background-color: #f4f1ec;
@@ -37,5 +40,5 @@
 }
 
 section.new-tweets{
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
