@@ -29,8 +29,8 @@ module.exports = {
    
     const avatars = {
       
-      Female: [`https://randomuser.me/api/portraits/thumb/women/${Math.round(Math.random() * 99)}.jpg`],
-      Male: [`https://randomuser.me/api/portraits/thumb/men/${Math.round(Math.random() * 99)}.jpg`]
+      Female: [`https://randomuser.me/api/portraits/women/${Math.round(Math.random() * 99)}.jpg`],
+      Male: [`https://randomuser.me/api/portraits/men/${Math.round(Math.random() * 99)}.jpg`]
     
     }
 
