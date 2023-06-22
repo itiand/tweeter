@@ -47,7 +47,7 @@ const createTweetElement = function(tweetData) {
     class: "tweet-footer flex"
   });
 
-  const $daysAgo = $("<p>").text(created_at);
+  const $daysAgo = $("<p>").text(timeago.format(created_at));
 
   const $rtLike = $("<div>", {
     class: "rtLike"
@@ -92,14 +92,20 @@ const renderTweets = function(collectionTweet) {
 $(document).ready(() => {
 
   $('#post-tweet').on('submit', function(e) {
-    console.log('submitted, performing AJAX call');
-    const serializedForm = $(this).serialize();
-    $.ajax('/tweets', { method: 'POST', data: serializedForm})
-      .then( (res) => {
-        console.log('RES is ', res);
-      })
-
     e.preventDefault()
+
+    if(!$('#tweet-text').val()) {
+      alert('Your tweet is empty.')
+    } else if ($('#tweet-text').val().length > 140) {
+      alert('Your tweet is too long.')
+    } else {
+      console.log('submitted, performing AJAX call');
+      const serializedForm = $(this).serialize();
+      $.ajax('/tweets', { method: 'POST', data: serializedForm})
+        .then( (res) => {
+          console.log('RES is ', res);
+        })
+    }
   })
 
   const loadTweets = function() {
