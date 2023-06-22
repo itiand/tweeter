@@ -86,10 +86,21 @@ const renderTweets = function(collectionTweet) {
   }
 }
 
+const showErrorBanner = function(message) {
+  $('.error-banner').text(message);
+  $('.error-banner').slideDown();
+  setTimeout(() => {
+    $('.error-banner').slideUp();
+  }, 5000);
+};
+
 
 
 // Test / driver code (temporary)
 $(document).ready(() => {
+  // $('.error-banner').text('')
+  // $('.error-banner').slideUp();
+
   const loadTweets = function() {
     console.log('Fetching tweets');
     $.ajax('/tweets', { method: 'GET' })
@@ -103,15 +114,15 @@ $(document).ready(() => {
 
   $('#post-tweet').on('submit', function(e) {
     e.preventDefault()
-
-    if(!$('#tweet-text').val()) {
-      alert('Your tweet is empty.')
-      return
-    } 
     
+    if (!$('#tweet-text').val()) {
+      showErrorBanner('Your tweet is empty.');
+      return;
+    }
+
     if ($('#tweet-text').val().length > 140) {
-      alert('Your tweet is too long.')
-      return
+      showErrorBanner('Your tweet is too long.');
+      return;
     }
 
     console.log('submitted, performing AJAX call');
