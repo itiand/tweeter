@@ -40,6 +40,9 @@ main {
   /* border: red 1px solid; */
 }
 
+.container {
+  max-width: 80%;
+}
 
 /****
 Utility

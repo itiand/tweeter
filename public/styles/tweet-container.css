@@ -1,7 +1,7 @@
 .tweet-container {
   border: #ddd 2px solid;
   box-shadow: 5px 8px 0px 0px rgb(217, 218, 236, 0.7);
-  padding: 1rem;
+  padding: 1.2rem;
   margin-bottom: 1rem;
 }
 
@@ -20,7 +20,7 @@
 div.icon {
   width: 60px;
   height: 60px;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
 }
 
 .icon-img {
@@ -40,6 +40,9 @@ div.icon {
   align-items: center;
 }
 
+.profile p {
+  font-weight: bold;
+}
 
 /**TWEET**/
 .tweet-container .tweet {
