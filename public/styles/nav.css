@@ -23,9 +23,43 @@ nav {
   padding-top:0.4rem;
   text-align: center;
   cursor: pointer;
+  color:red;
 }
 
 .down-icon:hover {
   color: #efd83e;
 }
 
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.down-icon {
+  animation: floating 2s infinite;
+}
+/* @keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.down-icon {
+  animation: floating 2s infinite;
+} */

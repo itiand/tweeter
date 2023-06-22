@@ -144,6 +144,7 @@ $(document).ready(() => {
 
     if($newTweetSection.css('display') === 'none') {
       $newTweetSection.slideDown();
+      $('#tweet-text').focus();
     } else if($newTweetSection.css('display') === 'block') {
       $newTweetSection.slideUp();
     }
