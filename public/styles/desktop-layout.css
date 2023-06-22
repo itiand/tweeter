@@ -1,0 +1,30 @@
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Divide the columns into one-third and two-thirds */
+  }
+
+  #nav-header {
+    border-radius: 5px;
+    grid-column: 1; /* Place the header in the first column */
+    justify-self: center;
+    padding-top: 0;
+    height: 380px;
+    width: 400px;
+    box-shadow: 5px 8px 0px 0px rgb(217, 218, 236, 0.7);
+    margin-left: 20px;
+    
+  }
+
+  main.container {
+    grid-column: 2; /* Place the main container in the second column */
+    max-width: none;
+  }
+
+
+  #nav-header,
+  main.container {
+    margin-top: 200px;
+  }
+}

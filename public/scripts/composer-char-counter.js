@@ -6,6 +6,11 @@ const changeTextColor = function(element, color) {
   element.css('color', color)
 }
 
+const resetCharacterCount = function() {
+  updateCharacterCount(140);
+  changeTextColor($('.counter'), '#757165')
+}
+
 //updates the counter value as user types
 //changes color if numOfChars exceeds 140;
 $(document).ready(function() {
@@ -25,3 +30,4 @@ $(document).ready(function() {
     }
   })
 });
+

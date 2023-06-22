@@ -3,7 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 const createTweetElement = function(tweetData) {
   const { user, content, created_at } = tweetData;
 
@@ -73,7 +72,7 @@ const createTweetElement = function(tweetData) {
   $rtLike.append($flagIcon, $retweetIcon, $heartIcon);
   $footer.append($daysAgo, $rtLike);
 
-  $article.append($header, $tweet, $footer)
+  $article.append($header, $tweet, $footer);
 
   return $article;
 };
@@ -81,11 +80,11 @@ const createTweetElement = function(tweetData) {
 
 const renderTweets = function(collectionTweet) {
   $('#tweetS-container').empty();
-  for(const tweet of collectionTweet) {
+  for (const tweet of collectionTweet) {
     const tweetHTML = createTweetElement(tweet);
     $('#tweetS-container').prepend(tweetHTML);
   }
-}
+};
 
 const showErrorBanner = function(message) {
   $('.error-banner').text(message);
@@ -99,8 +98,6 @@ const showErrorBanner = function(message) {
 
 // Test / driver code (temporary)
 $(document).ready(() => {
-  // $('.error-banner').text('')
-  // $('.error-banner').slideUp();
 
   const loadTweets = function() {
     console.log('Fetching tweets');
@@ -110,12 +107,12 @@ $(document).ready(() => {
       })
       .catch((error) => {
         console.log('Error: ', error);
-      })
+      });
   };
 
   $('#post-tweet').on('submit', function(e) {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     if (!$('#tweet-text').val()) {
       showErrorBanner('Your tweet is empty.');
       return;
@@ -128,15 +125,18 @@ $(document).ready(() => {
 
     console.log('submitted, performing AJAX call');
     const serializedForm = $(this).serialize();
-    $.ajax( { method: 'POST', url: "/tweets", data: serializedForm})
-      .then( function() {
+    $.ajax({ method: 'POST', url: "/tweets", data: serializedForm })
+      .then(function() {
+        console.log('Call successful!');
+        //reset the character count aswell
         $('#tweet-text').val('');
+        resetCharacterCount();
         loadTweets();
       })
       .catch((error) => {
         console.log("Error:", error);
       });
-  })
+  });
 
   loadTweets();
-})
+});
