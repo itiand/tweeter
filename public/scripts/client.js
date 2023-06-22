@@ -80,6 +80,7 @@ const createTweetElement = function(tweetData) {
 
 
 const renderTweets = function(collectionTweet) {
+  $('#tweetS-container').empty();
   for(const tweet of collectionTweet) {
     const tweetHTML = createTweetElement(tweet);
     $('#tweetS-container').prepend(tweetHTML);
