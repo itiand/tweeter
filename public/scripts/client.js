@@ -82,7 +82,7 @@ const createTweetElement = function(tweetData) {
 const renderTweets = function(collectionTweet) {
   for(const tweet of collectionTweet) {
     const tweetHTML = createTweetElement(tweet);
-    $('#tweetS-container').append(tweetHTML);
+    $('#tweetS-container').prepend(tweetHTML);
   }
 }
 
@@ -90,27 +90,9 @@ const renderTweets = function(collectionTweet) {
 
 // Test / driver code (temporary)
 $(document).ready(() => {
-
-  $('#post-tweet').on('submit', function(e) {
-    e.preventDefault()
-
-    if(!$('#tweet-text').val()) {
-      alert('Your tweet is empty.')
-    } else if ($('#tweet-text').val().length > 140) {
-      alert('Your tweet is too long.')
-    } else {
-      console.log('submitted, performing AJAX call');
-      const serializedForm = $(this).serialize();
-      $.ajax('/tweets', { method: 'POST', data: serializedForm})
-        .then( (res) => {
-          console.log('RES is ', res);
-        })
-    }
-  })
-
   const loadTweets = function() {
     console.log('Fetching tweets');
-    $.ajax('http://localhost:8080/tweets', { method: 'GET' })
+    $.ajax('/tweets', { method: 'GET' })
       .then((tweets) => {
         renderTweets(tweets);
       })
@@ -118,6 +100,31 @@ $(document).ready(() => {
         console.log('Error: ', error);
       })
   };
+
+  $('#post-tweet').on('submit', function(e) {
+    e.preventDefault()
+
+    if(!$('#tweet-text').val()) {
+      alert('Your tweet is empty.')
+      return
+    } 
+    
+    if ($('#tweet-text').val().length > 140) {
+      alert('Your tweet is too long.')
+      return
+    }
+
+    console.log('submitted, performing AJAX call');
+    const serializedForm = $(this).serialize();
+    $.ajax( { method: 'POST', url: "/tweets", data: serializedForm})
+      .then( function() {
+        $('#tweet-text').val('');
+        loadTweets();
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+  })
 
   loadTweets();
 })
