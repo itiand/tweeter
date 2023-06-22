@@ -94,22 +94,22 @@ const showErrorBanner = function(message) {
   }, 5000);
 };
 
+const loadTweets = function() {
+  console.log('Fetching tweets');
+  $.ajax('/tweets', { method: 'GET' })
+    .then((tweets) => {
+      renderTweets(tweets);
+    })
+    .catch((error) => {
+      console.log('Error: ', error);
+    });
+};
 
 
 // Test / driver code (temporary)
 $(document).ready(() => {
 
-  const loadTweets = function() {
-    console.log('Fetching tweets');
-    $.ajax('/tweets', { method: 'GET' })
-      .then((tweets) => {
-        renderTweets(tweets);
-      })
-      .catch((error) => {
-        console.log('Error: ', error);
-      });
-  };
-
+  //POST TWEET
   $('#post-tweet').on('submit', function(e) {
     e.preventDefault();
 
@@ -137,6 +137,17 @@ $(document).ready(() => {
         console.log("Error:", error);
       });
   });
+
+  //NEW TWEET ARROW TOGGLE
+  $('.down-icon').on('click', function(e) {
+    const $newTweetSection = $('.new-tweets')
+
+    if($newTweetSection.css('display') === 'none') {
+      $newTweetSection.slideDown();
+    } else if($newTweetSection.css('display') === 'block') {
+      $newTweetSection.slideUp();
+    }
+  })
 
   loadTweets();
 });

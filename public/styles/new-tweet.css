@@ -7,6 +7,9 @@
   padding: 0.5rem 1rem;
   border-radius: 3px;
 }
+.btn-tweet:hover {
+  color: #efd83e;
+}
 
 .new-tweets label,
 .counter {
@@ -41,6 +44,7 @@
 
 section.new-tweets{
   margin-bottom: 3rem;
+  display: none;
 }
 
 .error-banner {

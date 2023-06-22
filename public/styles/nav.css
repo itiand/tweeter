@@ -22,6 +22,10 @@ nav {
 .down-icon {
   padding-top:0.4rem;
   text-align: center;
+  cursor: pointer;
 }
 
+.down-icon:hover {
+  color: #efd83e;
+}
 
