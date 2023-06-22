@@ -4,62 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1687182493484
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1687268893484
-  },
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "./images/isaac-newton-kneller-painting.jpg",
-      "handle": "@realIsaacNewton"
-    },
-    "content": {
-      "text": "I am the real deal"
-    },
-    "created_at": 1687268897484
-  },
-
-]
-
-const formatTimestamp = function(timestamp) {
-  const now = Date.now();
-  const diff = now - timestamp;
-
-  // Convert the difference to days
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-  if (days === 0) {
-    // Less than a day, format as hours
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    return hours + " hours ago";
-  } else {
-    // Format as days
-    return days + " days ago";
-  }
-};
-
-
-
 const createTweetElement = function(tweetData) {
   const { user, content, created_at } = tweetData;
 
@@ -103,7 +47,7 @@ const createTweetElement = function(tweetData) {
     class: "tweet-footer flex"
   });
 
-  const $daysAgo = $("<p>").text(formatTimestamp(created_at));
+  const $daysAgo = $("<p>").text(created_at);
 
   const $rtLike = $("<div>", {
     class: "rtLike"
@@ -146,16 +90,28 @@ const renderTweets = function(collectionTweet) {
 
 // Test / driver code (temporary)
 $(document).ready(() => {
-  renderTweets(data); 
 
   $('#post-tweet').on('submit', function(e) {
     console.log('submitted, performing AJAX call');
+    const serializedForm = $(this).serialize();
+    $.ajax('/tweets', { method: 'POST', data: serializedForm})
+      .then( (res) => {
+        console.log('RES is ', res);
+      })
 
-    const $serializedForm = $(this).serialize();
-    
-    console.log('SERIALIZE - ', $serializedForm);
     e.preventDefault()
   })
 
+  const loadTweets = function() {
+    console.log('Fetching tweets');
+    $.ajax('http://localhost:8080/tweets', { method: 'GET' })
+      .then((tweets) => {
+        renderTweets(tweets);
+      })
+      .catch((error) => {
+        console.log('Error: ', error);
+      })
+  };
 
+  loadTweets();
 })
