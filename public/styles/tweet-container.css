@@ -80,3 +80,28 @@ div.icon {
 }
 
 
+/**
+**/
+.btn-scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+.btn-scroll-top i {
+  margin-top: 8px;
+}
+
+.btn-scroll-top:hover {
+  background-color: #c62828;
+}
+
+

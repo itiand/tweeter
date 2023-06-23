@@ -1,12 +1,7 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 const createTweetElement = function(tweetData) {
   const { user, content, created_at } = tweetData;
 
-  //BEGIN CREATE HEADER
+  //create header section
   const $article = $("<article>", {
     class: "tweet-container"
   });
@@ -33,15 +28,15 @@ const createTweetElement = function(tweetData) {
   const $handle = $("<p>", {
     class: "handle"
   }).text(user.handle);
-  //END HEADER
 
-  //TWEET CREATE ELEMENT
+
+  //create tweet section
   const $tweet = $("<p>", {
     class: "tweet"
   }).text(content.text);
-  //END TWEET SECTION
 
-  //FOOTER ELEMENT CREATION
+
+  //create footer section
   const $footer = $("<footer>", {
     class: "tweet-footer flex"
   });
@@ -64,7 +59,7 @@ const createTweetElement = function(tweetData) {
     class: "fa-solid fa-heart"
   });
 
-  //APPEND STAGE
+  //append
   $icon.append($iconImg);
   $profile.append($icon, $name);
   $header.append($profile, $handle);
@@ -82,9 +77,12 @@ const renderTweets = function(collectionTweet) {
   $('#tweetS-container').empty();
   for (const tweet of collectionTweet) {
     const tweetHTML = createTweetElement(tweet);
+
+    //for reverse order - most recent tweet at top
     $('#tweetS-container').prepend(tweetHTML);
   }
 };
+
 
 const showErrorBanner = function(message) {
   $('.error-banner').text(message);
@@ -106,18 +104,19 @@ const loadTweets = function() {
 };
 
 
-// Test / driver code (temporary)
 $(document).ready(() => {
 
-  //POST TWEET
+  //post tweet form submit
   $('#post-tweet').on('submit', function(e) {
     e.preventDefault();
-
+    
+    //check if text area is empty
     if (!$('#tweet-text').val()) {
       showErrorBanner('Your tweet is empty.');
       return;
     }
 
+    //check if exceeds 140 chars
     if ($('#tweet-text').val().length > 140) {
       showErrorBanner('Your tweet is too long.');
       return;
@@ -128,7 +127,6 @@ $(document).ready(() => {
     $.ajax({ method: 'POST', url: "/tweets", data: serializedForm })
       .then(function() {
         console.log('Call successful!');
-        //reset the character count aswell
         $('#tweet-text').val('');
         resetCharacterCount();
         loadTweets();
@@ -138,7 +136,7 @@ $(document).ready(() => {
       });
   });
 
-  //NEW TWEET ARROW TOGGLE
+  //new tweet arrow down toggle
   $('.down-icon').on('click', function(e) {
     const $newTweetSection = $('.new-tweets')
 
@@ -149,6 +147,25 @@ $(document).ready(() => {
       $newTweetSection.slideUp();
     }
   })
+
+  //scroll down event
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      $('#scroll-top-button').fadeIn();
+      $('.new-tweet').fadeOut();
+    } else {
+      $('#scroll-top-button').fadeOut();
+      $('.new-tweet').fadeIn();
+    }
+  });
+  
+
+  //scroll to top on click
+  $('#scroll-top-button').click(function() {
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
+    $('#tweet-text').focus();
+  });
+  
 
   loadTweets();
 });
