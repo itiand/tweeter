@@ -7,9 +7,7 @@ nav {
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-bottom: 0.8em;
-  
   position: fixed;
-
   display: flex;
   justify-content:space-between;
   align-items: flex-end;
@@ -48,18 +46,3 @@ nav {
 .down-icon {
   animation: floating 2s infinite;
 }
-/* @keyframes floating {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.down-icon {
-  animation: floating 2s infinite;
-} */

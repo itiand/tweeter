@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 h1, h2, h3, h4, h5, h6, p {
     margin-top: 0;
     margin-bottom: 0;
@@ -37,11 +38,6 @@ body {
 main {
   width: 90%;
   margin: auto;
-  /* border: red 1px solid; */
-}
-
-.container {
-  max-width: 80%;
 }
 
 /****
@@ -55,6 +51,10 @@ Utility
   display: flex;
 }
 
+
+.container {
+  max-width: 80%;
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

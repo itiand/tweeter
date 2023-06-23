@@ -23,6 +23,8 @@ $(document).ready(function() {
     charCounter -= innerNumOfChars;
     
     updateCharacterCount(charCounter);
+
+    //to change color or not
     if(charCounter < 0) {
       changeTextColor($('.counter'), '#943B3B');
     } else {

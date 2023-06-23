@@ -3,12 +3,11 @@
   padding-top: 120px;
   max-width: 100%;
   background-color: #efd83e;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");  
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   color: #f4f1ec;
   margin-bottom: 2.5rem;
 }
@@ -21,8 +20,6 @@
 .header-pic img {
   border-radius: 50%;
   border: 2px #ffff solid;
-
   max-width: 100%;
   max-height: 100%;
 }
-

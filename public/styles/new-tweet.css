@@ -20,19 +20,17 @@
   font-weight: bold;
 }
 #tweet-text {
-  /* Add your desired styling here, for example: */
   background-color: #f4f1ec;
   color:#2e2e2e;
   border: none;
   border-bottom: 1px solid #ddd;
   width: 100%;
   resize: none;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   padding-top: 1rem;
   line-height: 1.2rem;
   height: auto;
   overflow: hidden; /* Hide the scroll bar */
-
   margin-bottom: 0.4rem;
 }
 
@@ -53,6 +51,5 @@ section.new-tweets{
   color: red;
   padding: 0.5rem 0;
   margin-bottom: 1.7rem;
-
   display: none;
 }

@@ -57,7 +57,6 @@ div.icon {
   align-items: center;
 }
 
-
 .tweet-footer p {
   font-size: 0.7em;
   margin-left:1.2rem;
@@ -81,6 +80,7 @@ div.icon {
 
 
 /**
+Stretch - scroll to top
 **/
 .btn-scroll-top {
   position: fixed;
