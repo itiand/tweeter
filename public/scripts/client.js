@@ -74,12 +74,14 @@ const createTweetElement = function(tweetData) {
 
 
 const renderTweets = function(collectionTweet) {
-  $('#tweetS-container').empty();
+  const tweetSContainer = $('#tweetS-container');
+
+  tweetSContainer.empty();
   for (const tweet of collectionTweet) {
     const tweetHTML = createTweetElement(tweet);
 
     //for reverse order - most recent tweet at top
-    $('#tweetS-container').prepend(tweetHTML);
+    tweetSContainer.prepend(tweetHTML);
   }
 };
 
@@ -94,8 +96,9 @@ const showErrorBanner = function(message) {
 
 const loadTweets = function() {
   console.log('Fetching tweets');
-  $.ajax('/tweets', { method: 'GET' })
+  $.get('/tweets')
     .then((tweets) => {
+      console.log('Fetch Successful!');
       renderTweets(tweets);
     })
     .catch((error) => {
@@ -109,7 +112,7 @@ $(document).ready(() => {
   //post tweet form submit
   $('#post-tweet').on('submit', function(e) {
     e.preventDefault();
-    
+
     //check if text area is empty
     if (!$('#tweet-text').val()) {
       showErrorBanner('Your tweet is empty.');
@@ -122,9 +125,9 @@ $(document).ready(() => {
       return;
     }
 
-    console.log('submitted, performing AJAX call');
+    console.log('Tweet submitted, performing AJAX call');
     const serializedForm = $(this).serialize();
-    $.ajax({ method: 'POST', url: "/tweets", data: serializedForm })
+    $.post('/tweets', serializedForm )
       .then(function() {
         console.log('Call successful!');
         $('#tweet-text').val('');
@@ -138,15 +141,15 @@ $(document).ready(() => {
 
   //new tweet arrow down toggle
   $('.down-icon').on('click', function(e) {
-    const $newTweetSection = $('.new-tweets')
+    const $newTweetSection = $('.new-tweets');
 
-    if($newTweetSection.css('display') === 'none') {
+    if ($newTweetSection.css('display') === 'none') {
       $newTweetSection.slideDown();
       $('#tweet-text').focus();
-    } else if($newTweetSection.css('display') === 'block') {
+    } else if ($newTweetSection.css('display') === 'block') {
       $newTweetSection.slideUp();
     }
-  })
+  });
 
   //scroll down event
   $(window).scroll(function() {
@@ -158,14 +161,14 @@ $(document).ready(() => {
       $('.new-tweet').fadeIn();
     }
   });
-  
+
 
   //scroll to top on click
   $('#scroll-top-button').click(function() {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
     $('#tweet-text').focus();
   });
-  
+
 
   loadTweets();
 });
