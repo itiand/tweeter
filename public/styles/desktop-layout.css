@@ -21,7 +21,9 @@
     max-width: none;
   }
 
-  #nav-header,
+  #nav-header {
+    margin-top: 150px;
+  }
   main.container {
     margin-top: 200px;
   }
