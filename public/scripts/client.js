@@ -127,7 +127,7 @@ $(document).ready(() => {
 
     console.log('Tweet submitted, performing AJAX call');
     const serializedForm = $(this).serialize();
-    $.post('/tweets', serializedForm )
+    $.post('/tweets', serializedForm)
       .then(function() {
         console.log('Call successful!');
         $('#tweet-text').val('');
@@ -139,13 +139,13 @@ $(document).ready(() => {
       });
   });
 
-    // hitting enter key to submit form inside the textarea
-    $('#tweet-text').on('keydown', function(e) {
-      if (e.keyCode === 13 && !e.shiftKey) {
-        e.preventDefault();
-        $('#post-tweet').submit();
-      }
-    });
+  // hitting enter key to submit form inside the textarea
+  $('#tweet-text').on('keydown', function(e) {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      e.preventDefault();
+      $('#post-tweet').submit();
+    }
+  });
 
   //new tweet arrow down toggle
   $('.down-icon').on('click', function(e) {
