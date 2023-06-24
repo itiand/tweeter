@@ -48,7 +48,7 @@
         <p class="error-banner">Some Error</p>
         <form id="post-tweet" action="/tweets" method="POST">
           <label for="tweet-text" id="tweet-text-label">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" onkeyup="textAreaAdjust(this)"></textarea>
           <div class="form-bottom">
             <button class="btn-tweet" type="submit">Tweet</button>
             <output name="counter" class="counter bungee" for="tweet-text">140</output>
