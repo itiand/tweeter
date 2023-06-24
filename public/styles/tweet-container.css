@@ -50,6 +50,7 @@ div.icon {
   padding-bottom: 1.2rem;
   margin-bottom: 0.7rem;
   border-bottom: 1px solid #ddd;
+  overflow-wrap: break-word;
 }
 
 /**FOOTER**/
